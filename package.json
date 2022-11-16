@@ -1,0 +1,29 @@
+{
+  "name": "01_hello_node",
+  "version": "1.0.0",
+  "description": "Hello Node",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Jaewook",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.4",
+    "mongoose": "^6.7.2",
+    "morgan": "^1.10.0",
+    "mysql2": "^2.3.3",
+    "passport": "^0.6.0",
+    "pug": "^3.0.2",
+    "sequelize": "^6.25.6",
+    "uuid": "^9.0.0",
+    "winston": "^3.8.2"
+  }
+}
