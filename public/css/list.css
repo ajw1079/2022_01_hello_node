@@ -1,0 +1,3 @@
+table th:nth-child(1){width: 10%;}
+table th:nth-child(2){width: 30%;}
+table td:nth-child(3){text-align: left;}
