@@ -1,7 +1,7 @@
 /******** global init *******/
 const port = 3000;
 const express = require('express');
-const { _ } = require('lodash');
+const { get } = require('lodash');
 const app = express();
 
 const books = [
@@ -11,9 +11,6 @@ const books = [
   {id: 4, name: '콩쥐팥쥐전', content: '콩쥐가 뻘짓을... '},
   {id: 5, name: '춘향전', content: '그네 타다가 눈맞았네... '},
 ];
-/******** view engine *******/
-app.set('view engine', 'ejs');  //view engine의 정의문
-app.set('views', './views');
 
 /******** middleware *******/
 // post 빙식 중 application/json 방식을 처리한다.
@@ -23,13 +20,11 @@ app.use(express.urlencoded({ extended:false }));
 
 /******** router init *******/
 app.use('/', express.static('./public'));  
-// app.get('/', (req, res, next) => {
-// });
+app.get('/', (req, res, next) => {
+});
 
 app.get('/book', (req, res, next) => {
-  const reverseBooks = books.slice().reverse();
-  res.status(200).render('list.ejs', {reverseBooks : reverseBooks});  //완성된 구문 내부에 필요값(reverseBooks)을 전달하고 그 구문이 완성이 되면 화면상에 모든 구문을 렌더(send와 동일)시킨다.
-
+  res.status(200).json(books.slice().reverse());  //최신순으로 데이터가 들어오도록 반영한다. (slice() 메서드를 활용하여 원본에서 복제를 하여 사용한다.)
 });
 
 app.post('/book', (req, res, next) => {
@@ -39,7 +34,7 @@ app.post('/book', (req, res, next) => {
   books.push({ id, name, content})
   
   //res.status(200).json(books);  //json 방식으로 보여준다.
-  res.status(200).redirect('/book'); 
+  res.status(200).redirect('/book/list.html'); 
 
 
 });

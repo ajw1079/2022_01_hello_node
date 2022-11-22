@@ -33,15 +33,16 @@
         </tr>
       </thead>
       <tbody>
-
+        <% for(let book of reverseBooks){ %>
+          <tr>
+            <td><%= book.id %></td>
+            <td><%= book.name %></td>
+            <td><%= book.content %></td>
+          </tr>
+        <% } %>
       </tbody>
-
     </table>
   </div>
-
-  
-
-
   <script src="../js/list.js"></script>
 </body>
 </html>
